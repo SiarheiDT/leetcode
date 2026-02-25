@@ -1,0 +1,155 @@
+================================================================================
+LeetCode 1672 — Richest Customer Wealth
+================================================================================
+
+
+----------------------------------------
+PROBLEM DESCRIPTION (ENGLISH)
+----------------------------------------
+
+You are given a 2D integer array called "accounts".
+
+- accounts[i][j] represents the amount of money that the i-th customer has in the j-th bank.
+- Each row represents one customer.
+- Each column represents one bank account.
+
+Your task is to return the maximum wealth among all customers.
+
+Customer wealth is defined as the sum of all money in their bank accounts.
+
+
+Example:
+
+Input:
+accounts = [[1,2,3],
+            [3,2,1]]
+
+Explanation:
+Customer 1 wealth = 1 + 2 + 3 = 6
+Customer 2 wealth = 3 + 2 + 1 = 6
+
+Output:
+6
+
+
+----------------------------------------
+SOLUTION EXPLANATION (ENGLISH)
+----------------------------------------
+
+The solution is straightforward:
+
+1. Iterate over each customer (each row in the matrix).
+2. For each customer:
+   - Calculate the sum of the values in that row.
+3. Keep track of the maximum wealth encountered.
+4. Return the maximum value after processing all customers.
+
+This is essentially a row-wise aggregation problem.
+
+Time Complexity:
+O(m * n)
+Where:
+- m = number of customers (rows)
+- n = number of accounts per customer (columns)
+
+Space Complexity:
+O(1) extra space
+Only a few scalar variables are used.
+
+
+Python Implementation:
+
+class Solution:
+    def maximumWealth(self, accounts):
+        max_wealth = 0
+        for customer in accounts:
+            wealth = sum(customer)
+            if wealth > max_wealth:
+                max_wealth = wealth
+        return max_wealth
+
+More concise version:
+
+class Solution:
+    def maximumWealth(self, accounts):
+        return max(map(sum, accounts))
+
+
+
+================================================================================
+ЗАДАЧА (РУССКАЯ ВЕРСИЯ)
+================================================================================
+
+
+----------------------------------------
+УСЛОВИЕ ЗАДАЧИ (РУССКИЙ)
+----------------------------------------
+
+Дан двумерный массив целых чисел "accounts".
+
+- accounts[i][j] — это количество денег у i-го клиента в j-м банке.
+- Каждая строка представляет одного клиента.
+- Каждый столбец представляет банковский счёт.
+
+Необходимо вернуть максимальное богатство среди всех клиентов.
+
+Богатство клиента определяется как сумма денег во всех его банковских счетах.
+
+
+Пример:
+
+Вход:
+accounts = [[1,2,3],
+            [3,2,1]]
+
+Объяснение:
+Богатство клиента 1 = 1 + 2 + 3 = 6
+Богатство клиента 2 = 3 + 2 + 1 = 6
+
+Выход:
+6
+
+
+----------------------------------------
+ОБЪЯСНЕНИЕ РЕШЕНИЯ (РУССКИЙ)
+----------------------------------------
+
+Решение выполняется следующим образом:
+
+1. Проходим по каждой строке массива (по каждому клиенту).
+2. Для каждого клиента:
+   - Вычисляем сумму элементов строки.
+3. Запоминаем максимальное найденное значение.
+4. После обработки всех клиентов возвращаем максимум.
+
+Это задача на агрегацию по строкам.
+
+Временная сложность:
+O(m * n)
+Где:
+- m — количество клиентов
+- n — количество счетов у каждого клиента
+
+Память:
+O(1) дополнительной памяти
+Используется только несколько переменных.
+
+
+Реализация на Python:
+
+class Solution:
+    def maximumWealth(self, accounts):
+        max_wealth = 0
+        for customer in accounts:
+            wealth = sum(customer)
+            if wealth > max_wealth:
+                max_wealth = wealth
+        return max_wealth
+
+Короткая версия:
+
+class Solution:
+    def maximumWealth(self, accounts):
+        return max(map(sum, accounts))
+
+================================================================================
