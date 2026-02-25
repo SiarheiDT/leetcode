@@ -1,0 +1,144 @@
+================================================================================
+LeetCode 412 — Fizz Buzz
+================================================================================
+
+
+----------------------------------------
+PROBLEM DESCRIPTION (ENGLISH)
+----------------------------------------
+
+Given an integer n, return a string array answer (1-indexed) where:
+
+- answer[i] == "FizzBuzz" if i is divisible by both 3 and 5.
+- answer[i] == "Fizz" if i is divisible by 3.
+- answer[i] == "Buzz" if i is divisible by 5.
+- answer[i] == i (as a string) if none of the above conditions are true.
+
+You must generate the result for all numbers from 1 to n inclusive.
+
+
+Example:
+
+Input:
+n = 15
+
+Output:
+["1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz",
+ "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"]
+
+
+----------------------------------------
+SOLUTION EXPLANATION (ENGLISH)
+----------------------------------------
+
+The solution iterates from 1 to n and applies divisibility rules.
+
+Steps:
+
+1. Validate input:
+   - Ensure n is an integer.
+   - Ensure n is positive.
+2. Loop from 1 to n.
+3. For each number:
+   - If divisible by both 3 and 5 → append "FizzBuzz".
+   - Else if divisible by 3 → append "Fizz".
+   - Else if divisible by 5 → append "Buzz".
+   - Otherwise → append the number converted to string.
+4. Return the resulting list.
+
+Divisibility is checked using the modulo operator:
+number % divisor == 0
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(n)
+(We store n elements in the result list)
+
+
+Python Implementation:
+
+from typing import List
+
+class Solution:
+    def fizzBuzz(self, n: int) -> List[str]:
+        result = []
+
+        if not isinstance(n, int):
+            raise TypeError("Input must be an integer")
+        
+        if n <= 0:
+            raise ValueError("Input must be positive")
+        
+        for i in range(1, n + 1):
+            if i % 3 == 0 and i % 5 == 0:
+                result.append("FizzBuzz")
+            elif i % 3 == 0:
+                result.append("Fizz")
+            elif i % 5 == 0:
+                result.append("Buzz")
+            else:
+                result.append(str(i))
+        
+        return result
+
+
+
+================================================================================
+ЗАДАЧА (РУССКАЯ ВЕРСИЯ)
+================================================================================
+
+
+----------------------------------------
+УСЛОВИЕ ЗАДАЧИ (РУССКИЙ)
+----------------------------------------
+
+Дано целое число n. Необходимо вернуть список строк, сформированный по следующим правилам:
+
+- Если число делится и на 3, и на 5 → вернуть "FizzBuzz".
+- Если число делится на 3 → вернуть "Fizz".
+- Если число делится на 5 → вернуть "Buzz".
+- Иначе вернуть само число в виде строки.
+
+Нужно сформировать список для всех чисел от 1 до n включительно.
+
+
+Пример:
+
+Вход:
+n = 15
+
+Выход:
+["1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz",
+ "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"]
+
+
+----------------------------------------
+ОБЪЯСНЕНИЕ РЕШЕНИЯ (РУССКИЙ)
+----------------------------------------
+
+Алгоритм работает следующим образом:
+
+1. Проверяем корректность входных данных:
+   - n должно быть целым числом.
+   - n должно быть положительным.
+2. Проходим циклом от 1 до n.
+3. Для каждого числа:
+   - Если число делится и на 3, и на 5 → добавляем "FizzBuzz".
+   - Если делится на 3 → добавляем "Fizz".
+   - Если делится на 5 → добавляем "Buzz".
+   - Иначе добавляем само число, преобразованное в строку.
+4. Возвращаем сформированный список.
+
+Проверка делимости осуществляется через оператор остатка:
+число % делитель == 0
+
+Временная сложность:
+O(n)
+
+Память:
+O(n)
+(Хранится n элементов в результирующем списке)
+
+================================================================================
