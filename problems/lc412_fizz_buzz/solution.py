@@ -21,3 +21,8 @@ class Solution:
                 result.append(str(i))
         
         return result
+    
+if __name__ == "__main__":
+    n = 30
+    output = Solution().fizzBuzz(n)
+    print(output)

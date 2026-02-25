@@ -1,6 +1,6 @@
 import pytest
 from hypothesis import given, strategies as st, settings
-from problems.lc412_fizz_buzz.lc412_v1 import Solution
+from problems.lc412_fizz_buzz.solution import Solution
 
 
 def reference_fizzbuzz(n: int) -> list[str]:

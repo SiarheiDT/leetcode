@@ -1,5 +1,5 @@
 import pytest
-from problems.lc1672_richest_customer_wealth.lc_1672_v1 import Solution
+from problems.lc1672_richest_customer_wealth.solution import Solution
 
 @pytest.mark.parametrize(
     "accounts, expected",

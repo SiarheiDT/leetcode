@@ -1,5 +1,5 @@
 import pytest
-from problems.lc412_fizz_buzz.lc412_v1 import Solution
+from problems.lc412_fizz_buzz.solution import Solution
 
 
 @pytest.mark.parametrize(

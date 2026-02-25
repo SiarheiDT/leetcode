@@ -1,0 +1,186 @@
+================================================================================
+LeetCode 1342 — Number of Steps to Reduce a Number to Zero
+================================================================================
+
+
+----------------------------------------
+PROBLEM DESCRIPTION (ENGLISH)
+----------------------------------------
+
+Given a non-negative integer num, return the number of steps required to reduce it to zero.
+
+In each step:
+
+- If the current number is even, divide it by 2.
+- If the current number is odd, subtract 1 from it.
+
+Repeat the process until the number becomes zero.
+
+
+Example 1:
+
+Input:
+num = 14
+
+Explanation:
+14 is even → 14 / 2 = 7
+7 is odd → 7 - 1 = 6
+6 is even → 6 / 2 = 3
+3 is odd → 3 - 1 = 2
+2 is even → 2 / 2 = 1
+1 is odd → 1 - 1 = 0
+
+Total steps = 6
+
+Output:
+6
+
+
+Example 2:
+
+Input:
+num = 8
+
+Output:
+4
+
+
+Example 3:
+
+Input:
+num = 0
+
+Output:
+0
+
+
+----------------------------------------
+SOLUTION EXPLANATION (ENGLISH)
+----------------------------------------
+
+The algorithm repeatedly modifies the number according to parity:
+
+1. Initialize a counter (steps = 0).
+2. While num is greater than 0:
+   - If num is even → divide it by 2.
+   - Otherwise → subtract 1.
+   - Increment steps.
+3. Return steps.
+
+Parity check is performed using:
+num % 2 == 0
+
+Time Complexity:
+O(log n)
+
+Explanation:
+Each division by 2 reduces the number by half.
+Each subtraction handles odd numbers before division.
+
+Space Complexity:
+O(1)
+
+Only a few scalar variables are used.
+
+
+Python Implementation:
+
+class Solution:
+    def numberOfSteps(self, num: int) -> int:
+        steps = 0
+        
+        while num > 0:
+            if num % 2 == 0:
+                num //= 2
+            else:
+                num -= 1
+            steps += 1
+        
+        return steps
+
+
+
+================================================================================
+ЗАДАЧА (РУССКАЯ ВЕРСИЯ)
+================================================================================
+
+
+----------------------------------------
+УСЛОВИЕ ЗАДАЧИ (РУССКИЙ)
+----------------------------------------
+
+Дано неотрицательное целое число num.
+Необходимо вернуть количество шагов, требуемых для того, чтобы уменьшить его до нуля.
+
+На каждом шаге:
+
+- Если число чётное → разделить его на 2.
+- Если число нечётное → вычесть 1.
+
+Процесс повторяется до тех пор, пока число не станет равным нулю.
+
+
+Пример 1:
+
+Вход:
+num = 14
+
+Объяснение:
+14 чётное → 14 / 2 = 7
+7 нечётное → 7 - 1 = 6
+6 чётное → 6 / 2 = 3
+3 нечётное → 3 - 1 = 2
+2 чётное → 2 / 2 = 1
+1 нечётное → 1 - 1 = 0
+
+Количество шагов = 6
+
+Выход:
+6
+
+
+Пример 2:
+
+Вход:
+num = 8
+
+Выход:
+4
+
+
+Пример 3:
+
+Вход:
+num = 0
+
+Выход:
+0
+
+
+----------------------------------------
+ОБЪЯСНЕНИЕ РЕШЕНИЯ (РУССКИЙ)
+----------------------------------------
+
+Алгоритм работает следующим образом:
+
+1. Инициализируем счётчик шагов (steps = 0).
+2. Пока num > 0:
+   - Если число чётное → делим на 2.
+   - Если нечётное → вычитаем 1.
+   - Увеличиваем счётчик шагов.
+3. Возвращаем количество шагов.
+
+Проверка чётности выполняется через:
+num % 2 == 0
+
+Временная сложность:
+O(log n)
+
+Так как каждое деление на 2 уменьшает число вдвое.
+
+Память:
+O(1)
+
+Используется только фиксированное количество переменных.
+
+================================================================================
