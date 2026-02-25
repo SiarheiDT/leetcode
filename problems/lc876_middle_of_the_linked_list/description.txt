@@ -1,0 +1,175 @@
+================================================================================
+LeetCode 876 — Middle of the Linked List
+================================================================================
+
+
+----------------------------------------
+PROBLEM DESCRIPTION (ENGLISH)
+----------------------------------------
+
+Given the head of a singly linked list, return the middle node of the linked list.
+
+If there are two middle nodes (i.e., the list has an even number of nodes),
+return the second middle node.
+
+You are given the head of the linked list.
+
+Definition of a singly linked list node:
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+Example 1:
+
+Input:
+1 -> 2 -> 3 -> 4 -> 5
+
+Output:
+3 -> 4 -> 5
+
+Explanation:
+The middle node is 3.
+
+
+Example 2:
+
+Input:
+1 -> 2 -> 3 -> 4 -> 5 -> 6
+
+Output:
+4 -> 5 -> 6
+
+Explanation:
+There are two middle nodes (3 and 4).
+According to the problem statement, we return the second middle node (4).
+
+
+----------------------------------------
+SOLUTION EXPLANATION (ENGLISH)
+----------------------------------------
+
+The optimal solution uses the "slow and fast pointer" technique.
+
+Algorithm:
+
+1. Initialize two pointers:
+   - slow = head
+   - fast = head
+
+2. Move pointers in a loop:
+   - slow moves one step at a time
+   - fast moves two steps at a time
+
+3. When fast reaches the end of the list:
+   - slow will be pointing at the middle node.
+
+Why this works:
+- When fast moves twice as fast as slow,
+- By the time fast reaches the end,
+- slow has traversed half the list.
+
+Time Complexity:
+O(n)
+
+Space Complexity:
+O(1)
+
+We only use two pointers.
+
+
+Python Implementation:
+
+class Solution:
+    def middleNode(self, head: ListNode) -> ListNode:
+        slow = head
+        fast = head
+
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+
+        return slow
+
+
+
+================================================================================
+ЗАДАЧА (РУССКАЯ ВЕРСИЯ)
+================================================================================
+
+
+----------------------------------------
+УСЛОВИЕ ЗАДАЧИ (РУССКИЙ)
+----------------------------------------
+
+Дан head односвязного списка. Необходимо вернуть средний узел списка.
+
+Если в списке два средних узла (чётное количество элементов),
+нужно вернуть второй из них.
+
+Определение узла односвязного списка:
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
+Пример 1:
+
+Вход:
+1 -> 2 -> 3 -> 4 -> 5
+
+Выход:
+3 -> 4 -> 5
+
+Средний элемент — 3.
+
+
+Пример 2:
+
+Вход:
+1 -> 2 -> 3 -> 4 -> 5 -> 6
+
+Выход:
+4 -> 5 -> 6
+
+Есть два средних элемента (3 и 4).
+По условию возвращается второй — 4.
+
+
+----------------------------------------
+ОБЪЯСНЕНИЕ РЕШЕНИЯ (РУССКИЙ)
+----------------------------------------
+
+Оптимальное решение использует метод "медленный и быстрый указатель".
+
+Алгоритм:
+
+1. Инициализируем два указателя:
+   - slow = head
+   - fast = head
+
+2. В цикле:
+   - slow двигается на один шаг
+   - fast двигается на два шага
+
+3. Когда fast достигает конца списка:
+   - slow будет находиться в середине.
+
+Почему это работает:
+- fast проходит список в два раза быстрее,
+- когда fast доходит до конца,
+- slow проходит половину списка.
+
+Временная сложность:
+O(n)
+
+Память:
+O(1)
+
+Используются только два указателя.
+
+================================================================================
