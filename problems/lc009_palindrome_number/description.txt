@@ -1,0 +1,197 @@
+================================================================================
+LeetCode 9 — Palindrome Number
+================================================================================
+
+
+----------------------------------------
+PROBLEM DESCRIPTION (ENGLISH)
+----------------------------------------
+
+Given an integer x, return true if x is a palindrome, and false otherwise.
+
+An integer is a palindrome when it reads the same forward and backward.
+
+Negative numbers are not palindromes because of the minus sign.
+
+
+Example 1:
+
+Input:
+x = 121
+
+Output:
+true
+
+Explanation:
+121 reads the same from left to right and right to left.
+
+
+Example 2:
+
+Input:
+x = -121
+
+Output:
+false
+
+Explanation:
+From left to right, it reads -121.
+From right to left, it becomes 121-.
+Therefore it is not a palindrome.
+
+
+Example 3:
+
+Input:
+x = 10
+
+Output:
+false
+
+Explanation:
+Reads 10 from left to right, but 01 from right to left.
+
+
+----------------------------------------
+SOLUTION EXPLANATION (ENGLISH)
+----------------------------------------
+
+There are multiple approaches to solving this problem.
+
+1) String-based approach (simple):
+   - Convert the integer to a string.
+   - Compare it with its reverse.
+   - Return True if they are equal.
+
+Time Complexity:
+O(n), where n is the number of digits.
+
+Space Complexity:
+O(n), due to string conversion.
+
+
+2) Mathematical approach (optimal, without string conversion):
+
+Idea:
+- Reverse only half of the number.
+- Compare the first half with the reversed second half.
+
+Steps:
+
+1. Negative numbers are immediately False.
+2. If x ends with 0 but is not 0 → False.
+3. Reverse digits until reversed >= remaining half.
+4. Compare:
+   - x == reversed
+   - or x == reversed // 10 (for odd number of digits)
+
+Time Complexity:
+O(log10(n))
+
+Space Complexity:
+O(1)
+
+
+Example (121):
+
+Step-by-step:
+x = 121
+reversed = 0
+
+Iteration 1:
+reversed = 1
+x = 12
+
+Iteration 2:
+reversed = 12
+x = 1
+
+Now reversed >= x → stop.
+
+Compare:
+x == reversed // 10 → 1 == 1 → True
+
+
+
+================================================================================
+ЗАДАЧА (РУССКАЯ ВЕРСИЯ)
+================================================================================
+
+
+----------------------------------------
+УСЛОВИЕ ЗАДАЧИ (РУССКИЙ)
+----------------------------------------
+
+Дано целое число x.
+
+Необходимо вернуть true, если число является палиндромом,
+и false в противном случае.
+
+Число является палиндромом, если оно читается одинаково слева направо
+и справа налево.
+
+Отрицательные числа не являются палиндромами
+из-за знака минус.
+
+Пример 1:
+
+Вход:
+x = 121
+
+Выход:
+true
+
+Пример 2:
+
+Вход:
+x = -121
+
+Выход:
+false
+
+Пример 3:
+
+Вход:
+x = 10
+
+Выход:
+false
+
+
+----------------------------------------
+ОБЪЯСНЕНИЕ РЕШЕНИЯ (РУССКИЙ)
+----------------------------------------
+
+Существует два основных подхода.
+
+1) Через преобразование в строку:
+   - Преобразовать число в строку.
+   - Сравнить строку с её перевёрнутой версией.
+
+Сложность:
+O(n) по времени и памяти.
+
+
+2) Математический подход (оптимальный):
+
+Идея:
+- Развернуть только половину числа.
+- Сравнить первую половину со второй.
+
+Алгоритм:
+
+1. Если число отрицательное → вернуть False.
+2. Если число заканчивается на 0 (и не равно 0) → False.
+3. Разворачивать число до тех пор, пока перевёрнутая часть
+   не станет больше или равна оставшейся.
+4. Сравнить:
+   - x == reversed
+   - или x == reversed // 10 (для нечётного количества цифр)
+
+Временная сложность:
+O(log10(n))
+
+Память:
+O(1)
+
+================================================================================
